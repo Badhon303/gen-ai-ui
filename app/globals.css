@@ -1,0 +1,124 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.lds-ripple {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-ripple div {
+  position: absolute;
+  border: 4px solid red;
+  opacity: 1;
+  border-radius: 50%;
+  animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+.lds-ripple div:nth-child(2) {
+  animation-delay: -0.5s;
+}
+
+.answerText {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 22px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  white-space: pre-line;
+}
+
+.answerText table {
+  border-collapse: collapse;
+}
+
+.answerText td,
+.answerText th {
+  border: 1px solid;
+  padding: 5px;
+}
+
+@keyframes lds-ripple {
+  0% {
+    top: 36px;
+    left: 36px;
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
+  4.9% {
+    top: 36px;
+    left: 36px;
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
+  5% {
+    top: 36px;
+    left: 36px;
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+  100% {
+    top: 0px;
+    left: 0px;
+    width: 72px;
+    height: 72px;
+    opacity: 0;
+  }
+}
+
+.btn {
+  @apply bg-color-secondary px-9 py-3 rounded-md capitalize font-bold hover:opacity-80 ease-in duration-200;
+}
+.card_btn {
+  @apply w-full px-9 py-3 bg-color-primary-dark rounded-md capitalize font-bold hover:bg-color-secondary ease-in duration-200;
+}
+.title {
+  @apply text-3xl md:text-4xl font-bold leading-snug;
+}
+.blob1 {
+  @apply w-80 h-80 bg-color-blob absolute top-0 -left-5 -z-10 blur-2xl opacity-30 overflow-hidden rounded-full;
+}
+.blob2 {
+  @apply w-80 h-80 bg-color-secondary absolute bottom-10 right-0 -z-10 blur-2xl opacity-30 overflow-hidden rounded-full;
+}
+.user-text {
+  display: none;
+}
+.user-text.active-text {
+  display: block;
+  animation: moveup 1s linear forwards;
+}
+.user-pic {
+  transition: all 0.2s ease;
+}
+.user-pic.active-pic {
+  border: 2px solid #ff7d3b;
+}
+@keyframes moveup {
+  0% {
+    margin-top: 40px;
+    opacity: 0;
+  }
+  50% {
+    margin-top: 20px;
+    opacity: 0.1;
+  }
+  100% {
+    margin-top: 0px;
+    opacity: 1;
+  }
+}
+.card {
+  perspective: 1000px;
+}
+.front,
+.back {
+  backface-visibility: hidden;
+  transition: all 0.4s ease;
+}
+.front {
+  overflow: hidden;
+}
